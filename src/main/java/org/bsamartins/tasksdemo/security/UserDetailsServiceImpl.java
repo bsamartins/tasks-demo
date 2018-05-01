@@ -22,6 +22,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     private UserDetails mapUserDetails(User user) {
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), Collections.emptyList());
+        return new AuthenticatedUser(user);
     }
 }
