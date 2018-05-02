@@ -112,7 +112,7 @@ const LoginForm = Vue.component('LoginForm', {
                         <input type="text" name="username" 
                             class="form-control" 
                             id="username" 
-                            placeholder="you@example.com" 
+                            placeholder="username" 
                             required="" 
                             autofocus=""
                             v-model="username">
@@ -122,7 +122,7 @@ const LoginForm = Vue.component('LoginForm', {
                         <input type="password" name="password" 
                             class="form-control" 
                             id="password" 
-                            placeholder="Password" 
+                            placeholder="password" 
                             required=""
                             v-model="password">
                     </div>                                      
@@ -142,6 +142,7 @@ const LoginForm = Vue.component('LoginForm', {
                 password: this.password
             }).then((res) => {
                 TokenStorage.store(res.data);
+                this.$emit('loggedIn')
             }).catch((err) => {
                 console.error(err);
                 this.errorLogin = true;
@@ -160,12 +161,22 @@ const App = Vue.component('App', {
     template: `
         <div class="container">
             <Tasks v-if="isLoggedIn"/>
-            <LoginForm v-else="isLoggedIn"/>
+            <LoginForm v-else="isLoggedIn" v-on:loggedIn="onLoggedIn"/>
         </div>`,
-    computed: {
-        isLoggedIn() {
-            return !!TokenStorage.get();
+    data: () => {
+        return {
+            isLoggedIn: false,
         }
+    },
+    mounted: function() {
+        this.isLoggedIn = !!TokenStorage.get();
+    },
+    methods: {
+        onLoggedIn: function() {
+            this.isLoggedIn = true;
+        }
+    },
+    computed: {
     }
 
 });

@@ -19,9 +19,15 @@ public class InitApplicationRunner {
 
     @PostConstruct
     public void init() {
-        User user = new User();
-        user.setUsername("username");
-        user.setPassword(passwordEncoder.encode("password"));
-        userRepository.save(user);
+        User user1 = new User();
+        user1.setUsername("username1");
+        user1.setPassword(passwordEncoder.encode("password"));
+        userRepository.save(user1);
+
+        User user2 = new User();
+        user2.setUsername("username2");
+        user2.setPassword(passwordEncoder.encode("password"));
+        userRepository.save(user2);
+
     }
 }
