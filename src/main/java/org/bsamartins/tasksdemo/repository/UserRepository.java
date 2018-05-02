@@ -1,6 +1,6 @@
 package org.bsamartins.tasksdemo.repository;
 
-import org.bsamartins.tasksdemo.model.web.User;
+import org.bsamartins.tasksdemo.model.persistence.User;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.Optional;

@@ -1,13 +1,12 @@
-package org.bsamartins.tasksdemo.model.web;
+package org.bsamartins.tasksdemo.model.persistence;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="tasks")
+@Table(name="tasks",
+        indexes = @Index(columnList = "userId")
+)
 public class Task {
 
     @Id

@@ -1,13 +1,11 @@
 package org.bsamartins.tasksdemo.security;
 
-import org.bsamartins.tasksdemo.model.web.User;
+import org.bsamartins.tasksdemo.model.persistence.User;
 import org.bsamartins.tasksdemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
-import java.util.Collections;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 

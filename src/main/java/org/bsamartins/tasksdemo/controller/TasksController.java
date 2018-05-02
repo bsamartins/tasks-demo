@@ -2,7 +2,7 @@ package org.bsamartins.tasksdemo.controller;
 
 import org.bsamartins.tasksdemo.controller.model.TaskAction;
 import org.bsamartins.tasksdemo.controller.model.TaskCreate;
-import org.bsamartins.tasksdemo.model.web.Task;
+import org.bsamartins.tasksdemo.model.persistence.Task;
 import org.bsamartins.tasksdemo.security.AuthenticatedUser;
 import org.bsamartins.tasksdemo.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;

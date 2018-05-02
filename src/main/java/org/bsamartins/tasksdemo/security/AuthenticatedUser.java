@@ -1,6 +1,6 @@
 package org.bsamartins.tasksdemo.security;
 
-import org.bsamartins.tasksdemo.model.web.User;
+import org.bsamartins.tasksdemo.model.persistence.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

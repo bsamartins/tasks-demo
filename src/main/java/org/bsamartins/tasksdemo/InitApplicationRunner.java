@@ -1,15 +1,15 @@
 package org.bsamartins.tasksdemo;
 
-import org.bsamartins.tasksdemo.model.web.User;
+import org.bsamartins.tasksdemo.model.persistence.User;
 import org.bsamartins.tasksdemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 @Component
-public class InitApplicationRunner implements ApplicationRunner {
+public class InitApplicationRunner {
 
     @Autowired
     private UserRepository userRepository;
@@ -17,8 +17,8 @@ public class InitApplicationRunner implements ApplicationRunner {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
+    @PostConstruct
+    public void init() {
         User user = new User();
         user.setUsername("username");
         user.setPassword(passwordEncoder.encode("password"));

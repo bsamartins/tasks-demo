@@ -1,4 +1,4 @@
-package org.bsamartins.tasksdemo.model.web;
+package org.bsamartins.tasksdemo.model.persistence;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -6,7 +6,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="users",
-    uniqueConstraints = { @UniqueConstraint(columnNames = "username")})
+    uniqueConstraints = { @UniqueConstraint(columnNames = "username") },
+    indexes = @Index(columnList = "username")
+)
 public class User {
 
     @Id
